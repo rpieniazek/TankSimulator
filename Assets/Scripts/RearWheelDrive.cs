@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class RearWheelDrive : MonoBehaviour {
 
@@ -7,9 +8,16 @@ public class RearWheelDrive : MonoBehaviour {
 
 	//public float turnSpeed = 300;
 	public float forwardTorque = 300;
+
+	public float breakDampingRate = 100;
+	public float driveDampingRate = 10;
 	public GameObject wheelShapeFront;
 	public GameObject wheelShapeMid;
 	public GameObject wheelShapeBack;
+	public Rigidbody tank;
+	public Text leftTorque;
+	public Text rightTorque;
+	public Text speed;
 	// here we find all the WheelColliders down in the hierarchy
 	public void Start()
 	{
@@ -40,9 +48,7 @@ public class RearWheelDrive : MonoBehaviour {
 		} 
 	}
 
-	// this is a really simple approach to updating wheels
-	// here we simulate a rear wheel drive car and assume that the car is perfectly symmetric at local zero
-	// this helps us to figure our which wheels are front ones and which are rear
+
 	public void Update()
 	{
 
@@ -54,14 +60,27 @@ public class RearWheelDrive : MonoBehaviour {
 		*/
 		float turn = forwardTorque * Input.GetAxis("Horizontal")*0.5f;
 
-		foreach (WheelCollider wheel in wheels)
-		{
+		foreach (WheelCollider wheel in wheels) {
+
+			if (Input.GetAxis ("Vertical") == 0 ) {
+
+				wheel.wheelDampingRate = breakDampingRate;
+			} else {
+				wheel.wheelDampingRate = driveDampingRate;
+			}
+
+
 			if (Input.GetAxis ("Vertical") == 0) {
+
+				
+
 				if (wheel.transform.localPosition.x > 0) {
 					wheel.motorTorque = -1 * turn;
+					leftTorque.text = "L: " + -1 * turn;
 				}
 				if (wheel.transform.localPosition.x < 0) {
 					wheel.motorTorque = turn;
+					rightTorque.text=   "R: " + turn;
 				}
 			} else {
 				float leftPercentage = 0.5f - Input.GetAxis ("Horizontal")/2 ;
@@ -69,9 +88,11 @@ public class RearWheelDrive : MonoBehaviour {
 
 				if (wheel.transform.localPosition.x > 0) {
 					wheel.motorTorque = leftPercentage * forwardTorque *Input.GetAxis("Vertical");
+					leftTorque.text=  "L: "+ leftPercentage * forwardTorque * Input.GetAxis ("Vertical");
 				}
 				if (wheel.transform.localPosition.x < 0) {
 					wheel.motorTorque = rightPercentage* forwardTorque*Input.GetAxis("Vertical");
+					rightTorque.text= "R: "+ rightPercentage* forwardTorque*Input.GetAxis("Vertical");
 				}
 
 			}
@@ -93,5 +114,8 @@ public class RearWheelDrive : MonoBehaviour {
 			}
 
 		}
+
+		speed.text= "Speed: " + (3.6*tank.velocity.magnitude).ToString("N3")+ " kmh";
+
 	}
 }
