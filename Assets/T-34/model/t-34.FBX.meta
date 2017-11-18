@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: b28f9e7fc0213464ea2ff52beae877c7
+timeCreated: 18446744011573954816
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: t-34 tracks
+    100004: t-34 turet
+    100006: Particle View 001
+    100008: t-34_barrel
+    100010: t-34_frame
+    100012: t-34_track_L
+    100014: t-34_track_R
+    100016: t-34_turet
+    100018: wheel_L_1
+    100020: wheel_L_2
+    100022: wheel_L_3
+    100024: wheel_L_4
+    100026: wheel_L_5
+    100028: wheel_L_6
+    100030: wheel_L_7
+    100032: wheel_R_1
+    100034: wheel_R_2
+    100036: wheel_R_3
+    100038: wheel_R_4
+    100040: wheel_R_5
+    100042: wheel_R_6
+    100044: wheel_R_7
+    400000: //RootNode
+    400002: t-34 tracks
+    400004: t-34 turet
+    400006: Particle View 001
+    400008: t-34_barrel
+    400010: t-34_frame
+    400012: t-34_track_L
+    400014: t-34_track_R
+    400016: t-34_turet
+    400018: wheel_L_1
+    400020: wheel_L_2
+    400022: wheel_L_3
+    400024: wheel_L_4
+    400026: wheel_L_5
+    400028: wheel_L_6
+    400030: wheel_L_7
+    400032: wheel_R_1
+    400034: wheel_R_2
+    400036: wheel_R_3
+    400038: wheel_R_4
+    400040: wheel_R_5
+    400042: wheel_R_6
+    400044: wheel_R_7
+    2300000: //RootNode
+    2300002: t-34 tracks
+    2300004: t-34 turet
+    2300006: t-34_barrel
+    2300008: t-34_frame
+    2300010: t-34_track_L
+    2300012: t-34_track_R
+    2300014: t-34_turet
+    2300016: wheel_L_1
+    2300018: wheel_L_2
+    2300020: wheel_L_3
+    2300022: wheel_L_4
+    2300024: wheel_L_5
+    2300026: wheel_L_6
+    2300028: wheel_L_7
+    2300030: wheel_R_1
+    2300032: wheel_R_2
+    2300034: wheel_R_3
+    2300036: wheel_R_4
+    2300038: wheel_R_5
+    2300040: wheel_R_6
+    2300042: wheel_R_7
+    3300000: //RootNode
+    3300002: t-34 tracks
+    3300004: t-34 turet
+    3300006: t-34_barrel
+    3300008: t-34_frame
+    3300010: t-34_track_L
+    3300012: t-34_track_R
+    3300014: t-34_turet
+    3300016: wheel_L_1
+    3300018: wheel_L_2
+    3300020: wheel_L_3
+    3300022: wheel_L_4
+    3300024: wheel_L_5
+    3300026: wheel_L_6
+    3300028: wheel_L_7
+    3300030: wheel_R_1
+    3300032: wheel_R_2
+    3300034: wheel_R_3
+    3300036: wheel_R_4
+    3300038: wheel_R_5
+    3300040: wheel_R_6
+    3300042: wheel_R_7
+    4300000: t-34 frame
+    4300002: t-34 tracks
+    4300004: t-34 turet
+    4300006: t-34_frame
+    4300008: t-34_track_R
+    4300010: t-34_track_L
+    4300012: t-34_turet
+    4300014: t-34_barrel
+    4300016: wheel_L_1
+    4300018: wheel_L_2
+    4300020: wheel_L_3
+    4300022: wheel_L_4
+    4300024: wheel_L_5
+    4300026: wheel_L_6
+    4300028: wheel_L_7
+    4300030: wheel_R_7
+    4300032: wheel_R_6
+    4300034: wheel_R_5
+    4300036: wheel_R_4
+    4300038: wheel_R_3
+    4300040: wheel_R_2
+    4300042: wheel_R_1
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

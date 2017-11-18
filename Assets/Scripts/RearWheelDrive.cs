@@ -5,10 +5,11 @@ public class RearWheelDrive : MonoBehaviour {
 
 	private WheelCollider[] wheels;
 
-	public float maxAngle = 30;
-	public float maxTorque = 300;
-	public GameObject wheelShape;
-
+	//public float turnSpeed = 300;
+	public float forwardTorque = 300;
+	public GameObject wheelShapeFront;
+	public GameObject wheelShapeMid;
+	public GameObject wheelShapeBack;
 	// here we find all the WheelColliders down in the hierarchy
 	public void Start()
 	{
@@ -18,13 +19,25 @@ public class RearWheelDrive : MonoBehaviour {
 		{
 			var wheel = wheels [i];
 
-			// create wheel shapes only when needed
-			if (wheelShape != null)
-			{
-				var ws = GameObject.Instantiate (wheelShape);
-				ws.transform.parent = wheel.transform;
+			if (wheel.name.Contains ("0")) {
+				// create wheel shapes only when needed
+				if (wheelShapeFront != null) {
+					var ws = GameObject.Instantiate (wheelShapeFront);
+					ws.transform.parent = wheel.transform;
+				}
+			} else if (wheel.name.Contains ("6")) {
+
+				if (wheelShapeBack != null) {
+					var ws = GameObject.Instantiate (wheelShapeBack);
+					ws.transform.parent = wheel.transform;
+				}
+			} else {
+				if (wheelShapeMid != null) {
+					var ws = GameObject.Instantiate (wheelShapeMid);
+					ws.transform.parent = wheel.transform;
+				}
 			}
-		}
+		} 
 	}
 
 	// this is a really simple approach to updating wheels
@@ -32,20 +45,42 @@ public class RearWheelDrive : MonoBehaviour {
 	// this helps us to figure our which wheels are front ones and which are rear
 	public void Update()
 	{
-		float angle = maxAngle * Input.GetAxis("Horizontal");
-		float torque = maxTorque * Input.GetAxis("Vertical");
+
+		/*
+		if (Input.GetAxis ("Vertical") != 0 &&  Input.GetAxis("Horizontal") == 0)
+			forwardTorque = 45000;
+		else
+			forwardTorque = 20000;
+		*/
+		float turn = forwardTorque * Input.GetAxis("Horizontal")*0.5f;
 
 		foreach (WheelCollider wheel in wheels)
 		{
-			// a simple car where front wheels steer while rear ones drive
-			if (wheel.transform.localPosition.z > 0)
-				wheel.steerAngle = angle;
+			if (Input.GetAxis ("Vertical") == 0) {
+				if (wheel.transform.localPosition.x > 0) {
+					wheel.motorTorque = -1 * turn;
+				}
+				if (wheel.transform.localPosition.x < 0) {
+					wheel.motorTorque = turn;
+				}
+			} else {
+				float leftPercentage = 0.5f - Input.GetAxis ("Horizontal")/2 ;
+				float rightPercentage = 0.5f + Input.GetAxis ("Horizontal")/2;
 
-			if (wheel.transform.localPosition.z < 0)
-				wheel.motorTorque = torque;
+				if (wheel.transform.localPosition.x > 0) {
+					wheel.motorTorque = leftPercentage * forwardTorque *Input.GetAxis("Vertical");
+				}
+				if (wheel.transform.localPosition.x < 0) {
+					wheel.motorTorque = rightPercentage* forwardTorque*Input.GetAxis("Vertical");
+				}
+
+			}
+				
+		
+			// a simple car where front wheels steer while rear ones drive
 
 			// update visual wheels if any
-			if (wheelShape) 
+			if (wheelShapeFront || wheelShapeMid || wheelShapeBack) 
 			{
 				Quaternion q;
 				Vector3 p;
