@@ -35,9 +35,12 @@ public class CameraController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            showPreviews = !showPreviews;
-            DisplayCamera(activeCameraIndex);
-        }
+            DisplayCamera(3);
+		} else if (Input.GetKeyDown(KeyCode.Alpha5))
+		{
+			showPreviews = !showPreviews;
+			DisplayCamera(activeCameraIndex);
+		}
     }
 
     /// <summary>

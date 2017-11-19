@@ -30,7 +30,7 @@ public class TurretController : MonoBehaviour {
 	//	turret.rotation = Quaternion.Lerp(turret.rotation,Quaternion.Euler(new Vector3 (turret.rotation.eulerAngles.x,lookAngle.eulerAngles.y,turret.rotation.eulerAngles.z)),rotationSpeed);
 		turretAngleText.text = turret.rotation.eulerAngles.ToString();
 
-
+		barrel.rotation *= Quaternion.Euler (Input.GetAxis ("Elevation"), 0, 0);
 	//	turret.rotation = Quaternion.Lerp(turret.rotation, Quaternion.Euler(lookAngle.z, turret.rotation.x,turret.rotation.y), 1);
 	//	Debug.Log (barrel.localRotation.eulerAngles.x);
 	/*	if (barrel.localRotation.eulerAngles.x >= 339 || barrel.localRotation.eulerAngles.x <= 8) {
