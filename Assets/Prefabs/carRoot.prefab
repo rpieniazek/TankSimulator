@@ -8737,7 +8737,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1104560932945648}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &114281194905759882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8753,7 +8753,8 @@ MonoBehaviour:
   barrel: {fileID: 4277427739727378}
   lookAngleText: {fileID: 0}
   turretAngleText: {fileID: 0}
-  rotationSpeed: 1
+  aimModeText: {fileID: 0}
+  aimSpeed: 20
   elevationSpeed: 0
 --- !u!114 &114357489851681910
 MonoBehaviour:
@@ -8790,6 +8791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c7d87f5b508d741af904e3ace3543c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMouseButtonDown: 1
   target: {fileID: 4722414018515212}
   distance: 12
   xSpeed: 120
@@ -8883,7 +8885,7 @@ WheelCollider:
     spring: 159467.45
     damper: 25514.793
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525002
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.54989684
   m_Mass: 300
   m_WheelDampingRate: 10
@@ -9028,7 +9030,7 @@ WheelCollider:
     spring: 157626.28
     damper: 25220.205
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.54989684
   m_Mass: 300
   m_WheelDampingRate: 10

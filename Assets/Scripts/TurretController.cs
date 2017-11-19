@@ -11,22 +11,27 @@ public class TurretController : MonoBehaviour {
 
 	public Text lookAngleText;
 	public Text turretAngleText; 
-	public float rotationSpeed = 1;
+	public Text aimModeText;
+	public float aimSpeed = 1;
 	public float elevationSpeed;
 	private Quaternion lookAngle;
-
 	private Quaternion baseTowerAngle;
+
+	private bool aimMode = false;
 
 	void Start () {
 		lookAngle = turret.rotation;
 		baseTowerAngle = turret.rotation;
+		aimModeText.text = "Aim mode: " + (aimMode ? "ON" : "OFF");
 	}
 
 	void Update () {
-		lookAngle *= Quaternion.Euler (0,0,Input.GetAxis ("Yaw"));
-		lookAngleText.text = lookAngle.eulerAngles.ToString ();
-		turret.rotation = Quaternion.Lerp(turret.rotation, lookAngle, 0.9f);	
-
+		if (aimMode) {
+			lookAngle *= Quaternion.Euler (0, 0, Input.GetAxis ("Yaw"));
+			lookAngleText.text = lookAngle.eulerAngles.ToString ();
+			turret.rotation = Quaternion.Lerp (turret.rotation, lookAngle, Time.deltaTime*aimSpeed);	
+		}else 
+			turret.rotation = Quaternion.Lerp(turret.rotation,transform.rotation*Quaternion.Euler(270,0,0), Time.deltaTime*aimSpeed*0.03f);	
 	//	turret.rotation = Quaternion.Lerp(turret.rotation,Quaternion.Euler(new Vector3 (turret.rotation.eulerAngles.x,lookAngle.eulerAngles.y,turret.rotation.eulerAngles.z)),rotationSpeed);
 		turretAngleText.text = turret.rotation.eulerAngles.ToString();
 
@@ -41,5 +46,12 @@ public class TurretController : MonoBehaviour {
 			barrel.rotation= Quaternion.Euler(339, barrel.rotation.y, barrel.rotation.z);
 		}*/
 	//	}
+
+
+		if(Input.GetKeyUp(KeyCode.T)){
+			lookAngle = transform.rotation * Quaternion.Euler (270, 0, 0);
+			aimMode = !aimMode;
+			aimModeText.text = "Aim mode: " + (aimMode ? "ON" : "OFF");
+		}
 	}
 }
