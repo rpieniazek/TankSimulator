@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        cameras.RemoveAll(x => x == null);
         DisplayCamera(0);
     }
 
@@ -66,6 +67,8 @@ public class CameraController : MonoBehaviour
             }
             else if (showPreviews)
             {
+                if (cameras[i] == null) continue;
+
                 cameras[i].rect = new Rect(new Vector2(0, cameraPreviewSize.y * previews), cameraPreviewSize);
                 previews++;
                 cameras[i].depth = previews;

@@ -151,10 +151,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1756105925395056, guid: 776c2bbead039df4e97f1165d2a28c15, type: 2}
-      propertyPath: m_Name
-      value: Tank
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 776c2bbead039df4e97f1165d2a28c15, type: 2}
   m_IsPrefabParent: 0

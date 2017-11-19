@@ -1494,7 +1494,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1756105925395056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.2, z: 0}
+  m_LocalPosition: {x: -12.74, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4592282942770756}
@@ -4693,9 +4693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c7d87f5b508d741af904e3ace3543c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMouseButtonDown: 0
   target: {fileID: 4102281106672776}
   distance: 12
-  xSpeed: 120
+  xSpeed: 80
   ySpeed: 200
   yMinLimit: 5
   yMaxLimit: 80

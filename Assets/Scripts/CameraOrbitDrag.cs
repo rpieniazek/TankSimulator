@@ -3,59 +3,49 @@ using System.Collections;
 
 public class CameraOrbitDrag : MonoBehaviour
 {
-/*	public Transform orbitTarget;
-	public Transform camTransform;
-	public Camera camera;
+    /*	
+     *	public Transform orbitTarget;
+        public Transform camTransform;
+        public Camera camera;
 
 
-	protected Vector3 _LocalRotation;
-	protected float _CameraDistance = 10f;
+        protected Vector3 _LocalRotation;
+        protected float _CameraDistance = 10f;
 
-	public float MouseSensitivity = 4f;
-	public float ScrollSensitvity = 2f;
-	public float OrbitDampening = 10f;
-	public float ScrollDampening = 6f;
+        public float MouseSensitivity = 4f;
+        public float ScrollSensitvity = 2f;
+        public float OrbitDampening = 10f;
+        public float ScrollDampening = 6f;
 
-	public bool CameraDisabled = false;
+        public bool CameraDisabled = false;
 
+    */
 
-	// Use this for initialization
-	void Start() {
-	}
+    [SerializeField] bool OnMouseButtonDown;
 
+   
 
-	void LateUpdate() {
+    public Transform target;
+    public float distance = 10.0f;
+    public float xSpeed = 120.0f;
+    public float ySpeed = 120.0f;
 
-
-	}
-
-	void Update(){
-		
-	}*/
-
+    public float yMinLimit = -20f;
+    public float yMaxLimit = 80f;
 
 
-	public Transform target;
-	public float distance = 10.0f;
-	public float xSpeed = 120.0f;
-	public float ySpeed = 120.0f;
-
-	public float yMinLimit = -20f;
-	public float yMaxLimit = 80f;
+    float minFov = 5f;
+    float maxFov = 50f;
+    float sensitivity = 5f;
 
 
-	float minFov = 5f;
-	float maxFov = 50f;
-	float sensitivity= 5f;
+    private Rigidbody rigidbody;
 
+    float x = 0.0f;
+    float y = 0.0f;
 
-	private Rigidbody rigidbody;
-
-	float x = 0.0f;
-	float y = 0.0f;
-
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
 		Vector3 angles = transform.eulerAngles;
 		x = angles.y;
@@ -93,11 +83,7 @@ public class CameraOrbitDrag : MonoBehaviour
 	void LateUpdate () 
 	{
 
-
-
 		if (target) {
-
-
 
 			float dist = distance;
 			dist += Input.GetAxis("Mouse ScrollWheel") * sensitivity*-1;
@@ -105,7 +91,9 @@ public class CameraOrbitDrag : MonoBehaviour
 			distance = dist;
 
 
-			if (Input.GetMouseButton (0)) {
+			if (!OnMouseButtonDown || 
+                (OnMouseButtonDown && Input.GetMouseButton (0)) )
+            {
 				x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.02f;
 				y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
 
@@ -122,10 +110,6 @@ public class CameraOrbitDrag : MonoBehaviour
 		}
 	}
 
-
-	void Update () {
-		
-	}
 	public static float ClampAngle(float angle, float min, float max)
 	{
 		if (angle < -360F)
