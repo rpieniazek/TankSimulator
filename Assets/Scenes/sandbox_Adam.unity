@@ -198,7 +198,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421641814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 543, y: 76.5, z: 0}
+  m_LocalPosition: {x: 543, y: 51.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060952693}
@@ -314,7 +314,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 538876543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -523, y: 46.5, z: 0}
+  m_LocalPosition: {x: -523, y: 21.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060952693}
@@ -400,13 +400,13 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 3
   m_TerrainData: {fileID: 15600000, guid: e4396a2993318504e999b81e6eb8fb94, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
+  m_HeightmapPixelError: 1
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
   m_CastShadows: 1
@@ -499,6 +499,11 @@ Prefab:
       propertyPath: turretAngleText
       value: 
       objectReference: {fileID: 421641816}
+    - target: {fileID: 114281194905759882, guid: d56c69fbb1a9b8e4a99b59ee59fdcc07,
+        type: 2}
+      propertyPath: aimModeText
+      value: 
+      objectReference: {fileID: 2037160786}
     - target: {fileID: 146338394589407322, guid: d56c69fbb1a9b8e4a99b59ee59fdcc07,
         type: 2}
       propertyPath: m_SuspensionDistance
@@ -509,21 +514,6 @@ Prefab:
       propertyPath: m_SuspensionDistance
       value: 0.24525002
       objectReference: {fileID: 0}
-    - target: {fileID: 81705574805096058, guid: d56c69fbb1a9b8e4a99b59ee59fdcc07,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528862229635574, guid: d56c69fbb1a9b8e4a99b59ee59fdcc07,
-        type: 2}
-      propertyPath: OnMouseButtonDown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114281194905759882, guid: d56c69fbb1a9b8e4a99b59ee59fdcc07,
-        type: 2}
-      propertyPath: aimModeText
-      value: 
-      objectReference: {fileID: 2037160786}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d56c69fbb1a9b8e4a99b59ee59fdcc07, type: 2}
   m_IsPrefabParent: 0
@@ -556,7 +546,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 952101681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -523, y: 86.5, z: 0}
+  m_LocalPosition: {x: -523, y: 61.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060952693}
@@ -779,7 +769,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1060952689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 623, y: 116.5, z: 0}
+  m_LocalPosition: {x: 623, y: 91.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 952101682}
@@ -976,7 +966,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1539451232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 623, y: 116.5, z: 0}
+  m_LocalPosition: {x: 623, y: 91.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060952693}
@@ -1055,7 +1045,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1769494083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -523, y: 6.5, z: 0}
+  m_LocalPosition: {x: -523, y: -18.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060952693}
@@ -1134,7 +1124,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2037160784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 101.5, z: 0}
+  m_LocalPosition: {x: 0, y: 76.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060952693}
