@@ -55,4 +55,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   cameraPreviewSize: {x: 0.2, y: 0.3}
