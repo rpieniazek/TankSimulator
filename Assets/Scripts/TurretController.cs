@@ -32,7 +32,7 @@ public class TurretController : MonoBehaviour {
 			turret.rotation = Quaternion.Lerp (turret.rotation, lookAngle, Time.deltaTime * aimSpeed);	
 		} else {
 			turret.rotation = Quaternion.Lerp (turret.rotation, transform.rotation * Quaternion.Euler (270, 0, 0), Time.deltaTime * aimSpeed * 0.03f);
-			//barrel.rotation = Quaternion.Lerp (barrel.rotation, transform.rotation * Quaternion.Euler (270, 0, 0), Time.deltaTime * aimSpeed * 0.03f);
+		//	barrel.rotation = Quaternion.Lerp (barrel.rotation, transform.rotation * Quaternion.Euler (270, 0, 0), Time.deltaTime * aimSpeed * 0.03f);
 		}
 	//	turret.rotation = Quaternion.Lerp(turret.rotation,Quaternion.Euler(new Vector3 (turret.rotation.eulerAngles.x,lookAngle.eulerAngles.y,turret.rotation.eulerAngles.z)),rotationSpeed);
 		turretAngleText.text = turret.rotation.eulerAngles.ToString();
