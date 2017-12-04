@@ -53,16 +53,16 @@ public class RearWheelDrive : MonoBehaviour {
 	{
 
 		/*
-		if (Input.GetAxis ("Vertical") != 0 &&  Input.GetAxis("Horizontal") == 0)
+		if (Input.GetAxis ("Vertical") != 0 &&  Input.GetAxis("HorizontalTank") == 0)
 			forwardTorque = 45000;
 		else
 			forwardTorque = 20000;
 		*/
-		float turn = forwardTorque * Input.GetAxis("Horizontal")*0.5f;
+		float turn = forwardTorque * Input.GetAxis("HorizontalTank")*0.5f;
 
 		foreach (WheelCollider wheel in wheels) {
 
-			if (Input.GetAxis ("Vertical") == 0 ) {
+			if (Input.GetAxis ("VerticalTank") == 0 ) {
 
 				wheel.wheelDampingRate = breakDampingRate;
 			} else {
@@ -70,7 +70,7 @@ public class RearWheelDrive : MonoBehaviour {
 			}
 
 
-			if (Input.GetAxis ("Vertical") == 0) {
+			if (Input.GetAxis ("VerticalTank") == 0) {
 
 				
 
@@ -83,16 +83,16 @@ public class RearWheelDrive : MonoBehaviour {
 					rightTorque.text=   "R: " + turn;
 				}
 			} else {
-				float leftPercentage = 0.5f - Input.GetAxis ("Horizontal")/2 ;
-				float rightPercentage = 0.5f + Input.GetAxis ("Horizontal")/2;
+				float leftPercentage = 0.5f - Input.GetAxis ("HorizontalTank") /2 ;
+				float rightPercentage = 0.5f + Input.GetAxis ("HorizontalTank") /2;
 
 				if (wheel.transform.localPosition.x > 0) {
-					wheel.motorTorque = leftPercentage * forwardTorque *Input.GetAxis("Vertical");
-					leftTorque.text=  "L: "+ leftPercentage * forwardTorque * Input.GetAxis ("Vertical");
+					wheel.motorTorque = leftPercentage * forwardTorque *Input.GetAxis("VerticalTank");
+					leftTorque.text=  "L: "+ leftPercentage * forwardTorque * Input.GetAxis ("VerticalTank");
 				}
 				if (wheel.transform.localPosition.x < 0) {
-					wheel.motorTorque = rightPercentage* forwardTorque*Input.GetAxis("Vertical");
-					rightTorque.text= "R: "+ rightPercentage* forwardTorque*Input.GetAxis("Vertical");
+					wheel.motorTorque = rightPercentage* forwardTorque*Input.GetAxis("VerticalTank");
+					rightTorque.text= "R: "+ rightPercentage* forwardTorque*Input.GetAxis("VerticalTank");
 				}
 
 			}

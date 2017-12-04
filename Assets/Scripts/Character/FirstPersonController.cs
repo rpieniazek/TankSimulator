@@ -5,9 +5,29 @@ using UnityEngine;
 public class FirstPersonController : MonoBehaviour {
 
     [Header("Movement")]
-    public float speed = 5f;
+    public bool CanMove = true;
+    #region Movement vars
+    public float speed = 8f;
+    public float SpeedRun = 12f;
+    public float JumpSpeed = 20f;
+    public float RotateSpeed = 10f;
+    public float gravity = 20f;
+    #endregion
 
-    private CharacterController characterController;
+    // Kierunek przedni
+    public Vector3 direction = Vector3.zero;
+    // Poruszanie względem Y
+    public Vector3 yDirection = Vector3.zero;
+    // kamera
+    public Camera cam;
+
+    // Szybkość poruszania 
+    float speed_ver;
+    float speed_hor;
+    // Kierunek boczny
+    Vector3 dir_hor;
+    CharacterController controller;
+
     [Header("Camera")]
     [SerializeField] Transform cameraTransform;
 
@@ -20,38 +40,77 @@ public class FirstPersonController : MonoBehaviour {
     private Quaternion m_CharacterTargetRot;
     private Quaternion m_CameraTargetRot;
 
+
     // Use this for initialization
     void Start () {
-    //    characterController = GetComponent<CharacterController>();
 
         m_CharacterTargetRot = transform.localRotation;
         m_CameraTargetRot = cameraTransform.localRotation;
+        controller = GetComponent<CharacterController>();
     }
 	
-	// Update is called once per frame
-	void Update () {
+    void Update()
+    {
+     
 
         RotateView();
+        if (CanMove)
+        {
+            // Poruszanie WSAD
+            //    direction = new Vector3(-(cam.transform.position.x - transform.position.x), 0, -(cam.transform.position.z - transform.position.z));
+            direction = transform.forward;
+            direction.y = 0;
+            direction.Normalize();
+            float speed_ver = speed * Input.GetAxis("Vertical");
+            float speed_hor = speed * Input.GetAxis("Horizontal");
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+            dir_hor = new Vector3(direction.z, 0, -direction.x);
+            dir_hor.Normalize();
 
-       
+            // Szybkość poruszania się jest ograniczona do wartości Speed
+            Vector3 moveDirection = direction * speed_ver + dir_hor * speed_hor;
+            if (moveDirection.magnitude > speed)
+            {
+                moveDirection.Normalize();
+                moveDirection *= speed;
+            }
+            // Poruszanie względem Y
+            if (controller.isGrounded)
+            {
+                yDirection.y = 0;
+                if (Input.GetButton("Jump"))
+                {
+                    yDirection.y = JumpSpeed;
+                }
+            }
+            else
+                yDirection.y -= gravity * Time.deltaTime;
 
-        Vector3 desiredMove = transform.forward * vertical + transform.right * horizontal;
-        Vector3 moveDir = Vector3.zero;
-        moveDir.x = desiredMove.x * speed;
-        moveDir.z = desiredMove.z * speed;
+            if ((controller.collisionFlags & CollisionFlags.Above) != 0)
+            {
+                if (yDirection.y > 0)
+                    yDirection.y = 0;
+            }
+            controller.Move((moveDirection + yDirection) * Time.deltaTime);
 
-        transform.Translate(horizontal * speed * Time.deltaTime, 0 , vertical * speed * Time.deltaTime);
+        }
 
-       // characterController.Move(m_MoveDir * Time.deltaTime);
-
-       
     }
 
-
-
+    void OnDrawGizmos()
+    {
+        direction = new Vector3(-(cam.transform.position.x - transform.position.x), 0, -(cam.transform.position.z - transform.position.z));
+        direction.Normalize();
+        Vector3 dir_hor = new Vector3(direction.z, 0, -direction.x);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector3.up * 20);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, transform.forward * 20);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, 5 * direction);
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, 5 * dir_hor);
+    }
 
     private void RotateView()
     {
