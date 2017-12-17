@@ -21,7 +21,7 @@ public class BarrelStabilization : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
         if (!aimMode)
         {
             float angle = Vector3.Angle(turret.forward, barrel.up);
@@ -39,7 +39,7 @@ public class BarrelStabilization : MonoBehaviour {
         }
         else
         {
-            float dt = Time.fixedDeltaTime;
+			float dt = Time.deltaTime;
             float targetAngle = Vector3.Angle(targetVector, Vector3.up);
             float currentAngle = Vector3.Angle(barrel.up.normalized, Vector3.up);
             float angleError = targetAngle - currentAngle;
