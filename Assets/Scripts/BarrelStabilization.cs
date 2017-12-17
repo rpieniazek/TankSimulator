@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BarrelStabilization : MonoBehaviour {
-    public float Kp = 200;
-    public float Ki = 1;
+    public float Kp = 350;
+    public float Ki = 5;
     public float Kd = 0.1f;
     private float P, I, D;
     private float prevError;
@@ -39,7 +39,7 @@ public class BarrelStabilization : MonoBehaviour {
         }
         else
         {
-			float dt = Time.deltaTime;
+            float dt = Time.deltaTime;
             float targetAngle = Vector3.Angle(targetVector, Vector3.up);
             float currentAngle = Vector3.Angle(barrel.up.normalized, Vector3.up);
             float angleError = targetAngle - currentAngle;

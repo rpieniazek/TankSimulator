@@ -159,32 +159,7 @@ GameObject:
   m_PrefabParentObject: {fileID: 1756105925395056, guid: 776c2bbead039df4e97f1165d2a28c15,
     type: 2}
   m_PrefabInternal: {fileID: 510826937}
---- !u!4 &510826939 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4548317290114370, guid: 776c2bbead039df4e97f1165d2a28c15,
-    type: 2}
-  m_PrefabInternal: {fileID: 510826937}
---- !u!4 &510826940 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4544156445769204, guid: 776c2bbead039df4e97f1165d2a28c15,
-    type: 2}
-  m_PrefabInternal: {fileID: 510826937}
---- !u!114 &510826941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 510826938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60ba7057ddc7ea408bd4eec6e215ed5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Kp: 200
-  Ki: 1
-  Kd: 0.1
-  turret: {fileID: 510826939}
---- !u!114 &510826942
+--- !u!114 &510826939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -195,11 +170,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d07d97709dce9f499c090df7b664312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Kp: 200
-  Ki: 1
+  Kp: 350
+  Ki: 5
   Kd: 0.1
-  turret: {fileID: 510826939}
-  barrel: {fileID: 510826940}
+  turret: {fileID: 0}
+  barrel: {fileID: 0}
+--- !u!114 &510826940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 510826938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60ba7057ddc7ea408bd4eec6e215ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Kp: 350
+  Ki: 5
+  Kd: 0.1
+  turret: {fileID: 0}
 --- !u!1 &697737096
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,12 +310,12 @@ Prefab:
     - target: {fileID: 224096280776053228, guid: e5a1a933df3731146a18fef76a3d2bc9,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 579
+      value: 506
       objectReference: {fileID: 0}
     - target: {fileID: 224096280776053228, guid: e5a1a933df3731146a18fef76a3d2bc9,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 267.5
+      value: 258.5
       objectReference: {fileID: 0}
     - target: {fileID: 224096280776053228, guid: e5a1a933df3731146a18fef76a3d2bc9,
         type: 2}
