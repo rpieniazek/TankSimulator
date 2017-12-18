@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class RearWheelDrive : MonoBehaviour {
 
+    public bool CanMove;
+
 	private WheelCollider[] wheels;
 	float leftOffset;
 	float rightOffset;
@@ -42,7 +44,7 @@ public class RearWheelDrive : MonoBehaviour {
 
 	public void Update()
 	{
-
+       // if (!CanMove) //Input.ResetInputAxes();
 		/*
 		if (Input.GetAxis ("Vertical") != 0 &&  Input.GetAxis("HorizontalTank") == 0)
 			forwardTorque = 45000;

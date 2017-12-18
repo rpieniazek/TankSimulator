@@ -11,7 +11,7 @@ public class DWGDestroyer : MonoBehaviour {
 	}
 
 	void ExplodeForce(){	
-		Debug.LogError ("Explosion!!!");
+		//Debug.LogError ("Explosion!!!");
 		Vector3 explodePos = transform.position;
 		Collider[] colliders = Physics.OverlapSphere(explodePos, radius); 
 		foreach (Collider hit in colliders){

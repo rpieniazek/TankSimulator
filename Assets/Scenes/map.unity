@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6506947, g: 0.58821785, b: 0.49251133, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2576,6 +2576,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &58619997 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114658939584752160, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2005978929}
+  m_Script: {fileID: 11500000, guid: 87c8d9b862b9c0e4c987cf7c4adab3f9, type: 3}
 --- !u!43 &59177904
 Mesh:
   m_ObjectHideFlags: 0
@@ -35657,6 +35663,11 @@ Prefab:
       propertyPath: freeCamera
       value: 
       objectReference: {fileID: 1338465228}
+    - target: {fileID: 114252482618253856, guid: 681bd1b948354a14a827f96bf8bce5b6,
+        type: 2}
+      propertyPath: tankCameras
+      value: 
+      objectReference: {fileID: 58619997}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 681bd1b948354a14a827f96bf8bce5b6, type: 2}
   m_IsPrefabParent: 0
@@ -64280,7 +64291,12 @@ Prefab:
     - target: {fileID: 114077834532821760, guid: 1ad938dfa2753dd44b0c9763ebba9d3f,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 81399597776926946, guid: 1ad938dfa2753dd44b0c9763ebba9d3f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ad938dfa2753dd44b0c9763ebba9d3f, type: 2}
@@ -71521,22 +71537,7 @@ Prefab:
       propertyPath: speed
       value: 
       objectReference: {fileID: 278869538}
-    - target: {fileID: 146297860340047248, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
-        type: 2}
-      propertyPath: m_ForceAppPointDistance
-      value: 0.77450967
-      objectReference: {fileID: 0}
-    - target: {fileID: 146439407747239552, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
-        type: 2}
-      propertyPath: m_SuspensionDistance
-      value: 0.24525002
-      objectReference: {fileID: 0}
-    - target: {fileID: 146439407747239552, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
-        type: 2}
-      propertyPath: m_ForceAppPointDistance
-      value: 0.77450967
-      objectReference: {fileID: 0}
-    - target: {fileID: 146378751646258074, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146718282404497028, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
@@ -71546,17 +71547,22 @@ Prefab:
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146609665839466096, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146542518693081216, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146491413429717506, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146378751646258074, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146151936338337372, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146597591824386246, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+        type: 2}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.77450967
+      objectReference: {fileID: 0}
+    - target: {fileID: 146729832445179030, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
@@ -71581,22 +71587,17 @@ Prefab:
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146575838832697078, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146439407747239552, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+        type: 2}
+      propertyPath: m_SuspensionDistance
+      value: 0.24525002
+      objectReference: {fileID: 0}
+    - target: {fileID: 146439407747239552, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146216280774205264, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
-        type: 2}
-      propertyPath: m_ForceAppPointDistance
-      value: 0.77450967
-      objectReference: {fileID: 0}
-    - target: {fileID: 146759924639186126, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
-        type: 2}
-      propertyPath: m_ForceAppPointDistance
-      value: 0.77450967
-      objectReference: {fileID: 0}
-    - target: {fileID: 146729832445179030, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146491413429717506, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
@@ -71606,17 +71607,32 @@ Prefab:
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146718282404497028, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146759924639186126, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146597591824386246, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146151936338337372, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
       objectReference: {fileID: 0}
-    - target: {fileID: 146542518693081216, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+    - target: {fileID: 146297860340047248, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+        type: 2}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.77450967
+      objectReference: {fileID: 0}
+    - target: {fileID: 146216280774205264, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+        type: 2}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.77450967
+      objectReference: {fileID: 0}
+    - target: {fileID: 146575838832697078, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
+        type: 2}
+      propertyPath: m_ForceAppPointDistance
+      value: 0.77450967
+      objectReference: {fileID: 0}
+    - target: {fileID: 146609665839466096, guid: 11f0e8ff52fdc0c4fb00809c56d966c5,
         type: 2}
       propertyPath: m_ForceAppPointDistance
       value: 0.77450967
@@ -73514,12 +73530,12 @@ Prefab:
     - target: {fileID: 224096280776053228, guid: e5a1a933df3731146a18fef76a3d2bc9,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 221.5
+      value: 184
       objectReference: {fileID: 0}
     - target: {fileID: 224096280776053228, guid: e5a1a933df3731146a18fef76a3d2bc9,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 124.5
+      value: 103.5
       objectReference: {fileID: 0}
     - target: {fileID: 224096280776053228, guid: e5a1a933df3731146a18fef76a3d2bc9,
         type: 2}
@@ -74357,6 +74373,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1476484039971238, guid: d7b4484cf6597af4d943f7f9f6fb5a3a, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 81934214279956462, guid: d7b4484cf6597af4d943f7f9f6fb5a3a,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

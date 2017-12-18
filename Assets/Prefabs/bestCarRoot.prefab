@@ -706,7 +706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1599242586845698
 GameObject:
   m_ObjectHideFlags: 1
@@ -783,13 +783,14 @@ GameObject:
   - component: {fileID: 4836428643965826}
   - component: {fileID: 20686885463854544}
   - component: {fileID: 124370432525174266}
+  - component: {fileID: 81908950719114564}
   m_Layer: 9
   m_Name: Barrel Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1630928366864906
 GameObject:
   m_ObjectHideFlags: 1
@@ -2406,8 +2407,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.2
-    height: 0.3
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 45.8
@@ -2440,9 +2441,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.6
-    width: 0.2
-    height: 0.3
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.01
   far clip plane: 1000
   field of view: 62
@@ -3524,13 +3525,20 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1571219915304042}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!81 &81907686727273444
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621554225886312}
+  m_Enabled: 1
+--- !u!81 &81908950719114564
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623988822484254}
   m_Enabled: 1
 --- !u!82 &82295853851356898
 AudioSource:
@@ -3747,6 +3755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769c2cffd07404268b9e452d0f57f8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanMove: 0
   forwardTorque: 10000
   breakDampingRate: 50
   driveDampingRate: 10
@@ -4004,9 +4013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c8d9b862b9c0e4c987cf7c4adab3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 20274087713353126}
+  mainCamera: {fileID: 114154962941472260}
   driver: {fileID: 20688277567026678}
   barrel: {fileID: 20686885463854544}
+  activeCamera: 0
 --- !u!114 &114698703589578914
 MonoBehaviour:
   m_ObjectHideFlags: 1

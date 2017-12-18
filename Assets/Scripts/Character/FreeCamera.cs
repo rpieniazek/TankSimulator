@@ -38,24 +38,20 @@ public class FreeCamera : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-     
-        if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+
+        if(CanMove)
         {
             RotateView();
-        }
 
-        transform.Translate(Vector3.forward * flySpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-        transform.Translate(Vector3.right * flySpeed * Input.GetAxis("Horizontal") * Time.deltaTime);
+            transform.Translate(Vector3.forward * flySpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+            transform.Translate(Vector3.right * flySpeed * Input.GetAxis("Horizontal") * Time.deltaTime);
+        }
+       
     }
 
 
     private void RotateView()
     {
-
-        Debug.Log(Input.GetAxis("Mouse X"));
-        Debug.Log(Input.GetAxis("Mouse Y"));
-
-
 
         float yRot = Input.GetAxis("Mouse X") * XSensitivity;
         float xRot = Input.GetAxis("Mouse Y") * YSensitivity;
@@ -63,7 +59,6 @@ public class FreeCamera : MonoBehaviour {
         rot.y += yRot;
         rot.x -= xRot;
 
-        Input.ResetInputAxes();
         if (rot.x < -90)
         {
             rot.x = -90;
