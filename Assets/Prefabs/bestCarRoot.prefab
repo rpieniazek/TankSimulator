@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: 114090619652835068}
   - component: {fileID: 114733806288529552}
   - component: {fileID: 82487746612276350}
+  - component: {fileID: 114094231727872936}
+  - component: {fileID: 114658939584752160}
   m_Layer: 0
   m_Name: bestCarRoot
   m_TagString: Untagged
@@ -206,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4617545778096884}
   - component: {fileID: 114446350486369366}
+  - component: {fileID: 82295853851356898}
   m_Layer: 9
   m_Name: spawn
   m_TagString: Untagged
@@ -2213,7 +2216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1081218411324932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.18, z: 0}
+  m_LocalPosition: {x: 209.22, y: 0.7970047, z: 201.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4627038008454356}
@@ -3529,6 +3532,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1621554225886312}
   m_Enabled: 1
+--- !u!82 &82295853851356898
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1156209215237580}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3e68ee66403ca4f47a1842196b8f11d3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82487746612276350
 AudioSource:
   m_ObjectHideFlags: 1
@@ -3677,6 +3760,19 @@ MonoBehaviour:
   rightTrack: {fileID: 1502367836325504}
   leftNonDriveWheels: {fileID: 1993248462487336}
   rightNonDriveWheels: {fileID: 1800614492115560}
+--- !u!114 &114094231727872936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081218411324932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081b219ba9f6b2f4b9d1d737e37eb73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
+  force: 50
 --- !u!114 &114113595470441682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3714,11 +3810,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c7d87f5b508d741af904e3ace3543c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnMouseButtonDown: 1
+  OnMouseButtonDown: 0
+  CanMove: 0
   target: {fileID: 4627038008454356}
   distance: 12
-  xSpeed: 120
-  ySpeed: 200
+  xSpeed: 40
+  ySpeed: 100
   yMinLimit: 5
   yMaxLimit: 80
 --- !u!114 &114173983443559656
@@ -3818,6 +3915,7 @@ MonoBehaviour:
   projectile: {fileID: 54644872756149446, guid: 7a27ac9297b1b413e86e76471582f503,
     type: 2}
   speed: 80
+  shootSound: {fileID: 8300000, guid: 3e68ee66403ca4f47a1842196b8f11d3, type: 3}
 --- !u!114 &114450137213239722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3895,6 +3993,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8cff8fd7f1f784a8f78df189e207cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114658939584752160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081218411324932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c8d9b862b9c0e4c987cf7c4adab3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 20274087713353126}
+  driver: {fileID: 20688277567026678}
+  barrel: {fileID: 20686885463854544}
 --- !u!114 &114698703589578914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4134,10 +4246,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 146979.3
-    damper: 23516.686
+    spring: 146979.4
+    damper: 23516.707
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24524999
+  m_SuspensionDistance: 0.24525003
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4163,10 +4275,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 192697.8
-    damper: 30831.646
+    spring: 192696.14
+    damper: 30831.38
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525
+  m_SuspensionDistance: 0.24525002
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4221,8 +4333,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 149588.36
-    damper: 23934.139
+    spring: 149590.16
+    damper: 23934.426
     targetPosition: 0.4
   m_SuspensionDistance: 0.24525
   m_ForceAppPointDistance: 0.7745097
@@ -4250,10 +4362,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 162218.8
-    damper: 25955.006
+    spring: 162218.33
+    damper: 25954.934
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24524999
+  m_SuspensionDistance: 0.24525
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4279,10 +4391,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 164827.84
-    damper: 26372.457
+    spring: 164829.06
+    damper: 26372.65
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525003
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4308,10 +4420,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 200694
-    damper: 32111.041
+    spring: 200692.16
+    damper: 32110.748
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525
+  m_SuspensionDistance: 0.24525003
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4337,10 +4449,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 185078.03
-    damper: 29612.484
+    spring: 185076.88
+    damper: 29612.3
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525002
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4366,10 +4478,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 157208.11
-    damper: 25153.297
+    spring: 157209.75
+    damper: 25153.56
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525
+  m_SuspensionDistance: 0.24525003
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4395,10 +4507,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 180067.36
-    damper: 28810.78
+    spring: 180067.98
+    damper: 28810.875
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4424,10 +4536,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 187687.12
-    damper: 30029.938
+    spring: 187687.58
+    damper: 30030.014
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24524999
+  m_SuspensionDistance: 0.24525002
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4453,8 +4565,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 169838.53
-    damper: 27174.166
+    spring: 169837.94
+    damper: 27174.068
     targetPosition: 0.4
   m_SuspensionDistance: 0.24525002
   m_ForceAppPointDistance: 0.7745097
@@ -4482,10 +4594,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 177458.27
-    damper: 28393.326
+    spring: 177457.25
+    damper: 28393.16
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525003
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4511,10 +4623,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 172447.6
-    damper: 27591.615
+    spring: 172448.69
+    damper: 27591.787
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525003
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4540,10 +4652,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 195306.86
-    damper: 31249.098
+    spring: 195306.89
+    damper: 31249.1
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24525
+  m_SuspensionDistance: 0.24524999
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25
@@ -4569,10 +4681,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.17
   m_SuspensionSpring:
-    spring: 203303.08
-    damper: 32528.49
+    spring: 203302.9
+    damper: 32528.467
     targetPosition: 0.4
-  m_SuspensionDistance: 0.24524999
+  m_SuspensionDistance: 0.24525
   m_ForceAppPointDistance: 0.7745097
   m_Mass: 300
   m_WheelDampingRate: 0.25

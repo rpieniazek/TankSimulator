@@ -8,6 +8,10 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] List<Camera> cameras = new List<Camera>();
 
+    public TankCameras tankCameras;
+    public FreeCamera freeCamera;
+    public FirstPersonController fpsCamera; 
+
     [Space(10)]
     [SerializeField] Vector2 cameraPreviewSize = new Vector2(0.2f, 0.3f);
 

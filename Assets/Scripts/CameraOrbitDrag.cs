@@ -22,6 +22,7 @@ public class CameraOrbitDrag : MonoBehaviour
     */
 
     [SerializeField] bool OnMouseButtonDown;
+    public bool CanMove; 
 
    
 
@@ -39,7 +40,7 @@ public class CameraOrbitDrag : MonoBehaviour
     float sensitivity = 5f;
 
 
-    private Rigidbody rigidbody;
+    private Rigidbody rigid;
 
     float x = 0.0f;
     float y = 0.0f;
@@ -51,12 +52,12 @@ public class CameraOrbitDrag : MonoBehaviour
 		x = angles.y;
 		y = angles.x;
 
-		rigidbody = GetComponent<Rigidbody>();
+		rigid = GetComponent<Rigidbody>();
 
 		// Make the rigid body not change rotation
-		if (rigidbody != null)
+		if (rigid != null)
 		{
-			rigidbody.freezeRotation = true;
+			rigid.freezeRotation = true;
 		}
 
 
@@ -82,6 +83,7 @@ public class CameraOrbitDrag : MonoBehaviour
 
 	void LateUpdate () 
 	{
+       
 
 		if (target) {
 
@@ -91,14 +93,20 @@ public class CameraOrbitDrag : MonoBehaviour
 			distance = dist;
 
 
-			if (!OnMouseButtonDown || 
-                (OnMouseButtonDown && Input.GetMouseButton (0)) )
+			if (CanMove &&
+                !OnMouseButtonDown || 
+                (OnMouseButtonDown && Input.GetMouseButton (0))
+                )
             {
-				x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.02f;
-				y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
 
-				y = ClampAngle (y, yMinLimit, yMaxLimit);
-			}
+                x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
+                y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+
+                y = ClampAngle(y, yMinLimit, yMaxLimit);
+
+
+
+            }
 				Quaternion rotation = Quaternion.Euler (y, x, 0);
 
 				Vector3 negDistance = new Vector3 (0.0f, 0.0f, -distance);
