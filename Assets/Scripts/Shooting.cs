@@ -16,11 +16,6 @@ public class Shooting : MonoBehaviour {
 			Rigidbody instantiatedProjectile = Instantiate(projectile,transform.position,transform.rotation)as Rigidbody;
 			instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
 			//instantiatedProjectile.AddForce(new Vector3(0,0,speed));
-
-			//w audio nie ma takiej metody PlayOneShot
-//			audio.PlayOneShot(shootSound);
-
-
 		}
 	}
 }
