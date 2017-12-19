@@ -5,6 +5,8 @@ public class DWGDestroyer : MonoBehaviour {
 
 	public float radius = 2;
 	public float force = 50f;
+
+    public GameObject explosion;
 	
 	void OnCollisionEnter(Collision col){
 		ExplodeForce ();
@@ -21,5 +23,7 @@ public class DWGDestroyer : MonoBehaviour {
 			}
 
 		}
+        Instantiate(explosion.gameObject, transform.position, transform.rotation);
+        Destroy(gameObject);
 	}
 }

@@ -6,41 +6,54 @@ public class RearWheelDrive : MonoBehaviour {
 
     public bool CanMove;
 
-	private WheelCollider[] wheels;
-	float leftOffset;
-	float rightOffset;
-	//public float turnSpeed = 300;
-	public float forwardTorque = 300;
+    private WheelCollider[] wheels;
+    float leftOffset;
+    float rightOffset;
+    //public float turnSpeed = 300;
+    public float forwardTorque = 300;
 
-	public float breakDampingRate = 100;
-	public float driveDampingRate = 10;
-	public GameObject wheelShapeMid;
-	public Rigidbody tank;
-	public Text speed;
-	public float turnSensivity = 1;
-	public float scrollSpeed= 1;
-	public GameObject leftTrack, rightTrack;
+    public float breakDampingRate = 100;
+    public float driveDampingRate = 10;
+    public GameObject wheelShapeMid;
+    public Rigidbody tank;
+    public Text speed;
+    public float turnSensivity = 1;
+    public float scrollSpeed = 1;
+    public GameObject leftTrack, rightTrack;
 
-	public GameObject leftNonDriveWheels,rightNonDriveWheels;
-	// here we find all the WheelColliders down in the hierarchy
+    public GameObject leftNonDriveWheels, rightNonDriveWheels;
 
-	public void Start()
-	{
-		wheels = GetComponentsInChildren<WheelCollider>();
+    public ParticleSystem smoke1;
+    public ParticleSystem smoke2;
+    // here we find all the WheelColliders down in the hierarchy
 
-		for (int i = 0; i < wheels.Length; ++i) 
-		{
-			var wheel = wheels [i];		
-			if (wheelShapeMid != null) {
-					var ws = GameObject.Instantiate (wheelShapeMid);
-					ws.transform.parent = wheel.transform;
-				if (ws.transform.localPosition.x < 0f) {
-						ws.transform.localScale = new Vector3 (ws.transform.localScale.x * -1f, ws.transform.localScale.y, ws.transform.localScale.z);
-				}
-				}
-			}
-		} 
+    public void Start()
+    {
+        wheels = GetComponentsInChildren<WheelCollider>();
 
+        for (int i = 0; i < wheels.Length; ++i)
+        {
+            var wheel = wheels[i];
+            if (wheelShapeMid != null) {
+                var ws = GameObject.Instantiate(wheelShapeMid);
+                ws.transform.parent = wheel.transform;
+                if (ws.transform.localPosition.x < 0f) {
+                    ws.transform.localScale = new Vector3(ws.transform.localScale.x * -1f, ws.transform.localScale.y, ws.transform.localScale.z);
+                }
+            }
+        }
+
+        smoke1.Stop();
+        smoke2.Stop();
+            
+    }
+
+
+    public void Emit()
+    {
+        smoke1.Emit(1);
+        smoke2.Emit(1);
+    }
 
 	public void Update()
 	{
@@ -118,9 +131,16 @@ public class RearWheelDrive : MonoBehaviour {
 		float velocity = 3.6f * tank.velocity.magnitude;
 			speed.text= "Speed: " + (velocity).ToString("N3")+ " kmh";
 
+        if (velocity > 10)
+        {
+            Emit();
+        }
+
+    
 
 
-		float offset = Time.time* scrollSpeed;
+
+        float offset = Time.time* scrollSpeed;
 		leftOffset += offset * leftRpm;
 		rightOffset+= offset * rightRpm;
 

@@ -26,13 +26,13 @@ public class FreeCamera : MonoBehaviour {
     public float MinimumX = -90F;
     public float MaximumX = 90F;
 
-    private Quaternion m_CharacterTargetRot;
-    private Quaternion m_CameraTargetRot;
+    //private Quaternion m_CharacterTargetRot;
+   // private Quaternion m_CameraTargetRot;
 
     private void Start()
     {
-        m_CharacterTargetRot = transform.localRotation;
-        m_CameraTargetRot = cameraTransform.localRotation;
+     //   m_CharacterTargetRot = transform.localRotation;
+    //    m_CameraTargetRot = cameraTransform.localRotation;
         rot = transform.eulerAngles;
     }
 

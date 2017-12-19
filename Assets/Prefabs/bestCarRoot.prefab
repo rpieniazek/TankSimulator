@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 114090619652835068}
   - component: {fileID: 114733806288529552}
   - component: {fileID: 82487746612276350}
-  - component: {fileID: 114094231727872936}
   - component: {fileID: 114658939584752160}
   m_Layer: 0
   m_Name: bestCarRoot
@@ -3769,19 +3768,6 @@ MonoBehaviour:
   rightTrack: {fileID: 1502367836325504}
   leftNonDriveWheels: {fileID: 1993248462487336}
   rightNonDriveWheels: {fileID: 1800614492115560}
---- !u!114 &114094231727872936
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1081218411324932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081b219ba9f6b2f4b9d1d737e37eb73e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2
-  force: 50
 --- !u!114 &114113595470441682
 MonoBehaviour:
   m_ObjectHideFlags: 1
