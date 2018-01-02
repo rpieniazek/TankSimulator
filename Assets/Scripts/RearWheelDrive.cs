@@ -49,8 +49,15 @@ public class RearWheelDrive : MonoBehaviour {
     }
 
 
-    public void Emit()
+    public void Emit(bool forward)
     {
+
+        Vector3 rotation = new Vector3();
+        rotation.y = forward ? 180f : 0f;
+
+        smoke1.transform.localEulerAngles = rotation;
+        smoke2.transform.localEulerAngles = rotation;
+
         smoke1.Emit(1);
         smoke2.Emit(1);
     }
@@ -85,10 +92,7 @@ public class RearWheelDrive : MonoBehaviour {
 				wheel.wheelDampingRate = driveDampingRate;
 			}
 
-
-			if (Input.GetAxis ("VerticalTank") == 0) {
-
-				
+			if (Input.GetAxis ("VerticalTank") == 0) {			
 
 				if (wheel.transform.localPosition.x > 0) {
 					wheel.motorTorque = -1 * turn;
@@ -131,12 +135,13 @@ public class RearWheelDrive : MonoBehaviour {
 		float velocity = 3.6f * tank.velocity.magnitude;
 			speed.text= "Speed: " + (velocity).ToString("N3")+ " kmh";
 
+
+        // Jeśli odpowiednia prędkość - emituj dym
         if (velocity > 10)
         {
-            Emit();
+            bool forward = (Time.deltaTime * rightRpm > 0) ? true : false;
+            Emit(forward);
         }
-
-    
 
 
 
@@ -152,9 +157,8 @@ public class RearWheelDrive : MonoBehaviour {
 		}
 		foreach (Transform t in rightNonDriveWheels.transform) {
 			t.Rotate (new Vector3 (1, 0, 0), Time.deltaTime * rightRpm);
-
 		}
-
+     
 
 
 		GetComponentInChildren<AudioSource>().pitch = Mathf.Clamp(0.75f +velocity/60f + 0.5f*Mathf.Abs(Input.GetAxis("VerticalTank")) +  Mathf.Abs(Input.GetAxis("HorizontalTank")),  0.75f, 2.18f);
