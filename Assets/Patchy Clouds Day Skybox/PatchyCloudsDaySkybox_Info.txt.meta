@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: efd9407c6e19397419e77fc436189751
+labels:
+- art
+- texture
+- material
+- skies
+- skybox
+- sky
+- patchy
+- clouds
+- day
+- info
+timeCreated: 18446744011573954816
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
