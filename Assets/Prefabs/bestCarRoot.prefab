@@ -4085,6 +4085,9 @@ MonoBehaviour:
   speed: 80
   shootSound: {fileID: 8300000, guid: 3e68ee66403ca4f47a1842196b8f11d3, type: 3}
   spawn: {fileID: 4617545778096884}
+  reloadTime: 2
+  time: 0
+  canFire: 0
 --- !u!114 &114988038884578892
 MonoBehaviour:
   m_ObjectHideFlags: 1

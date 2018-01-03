@@ -28,13 +28,14 @@ public class BarrelStabilization : MonoBehaviour {
             if(angle <= 105 && angle >=85)
             {
                 barrel.localRotation *= Quaternion.Euler(Input.GetAxis("Elevation"), 0, 0);
-            } else if (angle > 105 && Input.GetKey("w"))
+            } else if (angle > 105 && Input.GetAxis("Elevation") > 0)
             {
                 barrel.localRotation *= Quaternion.Euler(1, 0, 0);
-            } else if (angle < 85 && Input.GetKey("s"))
+            } else if (angle < 85 && Input.GetAxis("Elevation") < 0)
             {
                 barrel.localRotation *= Quaternion.Euler(-1, 0, 0);
             }
+
             targetVector = barrel.up.normalized;
         }
         else

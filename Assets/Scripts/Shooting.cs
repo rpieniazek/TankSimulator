@@ -31,8 +31,8 @@ public class Shooting : MonoBehaviour {
 
         if (canFire && ( Input.GetButtonDown("Jump") || Input.GetAxis("RightTrigger") == 1))
         {
-            Rigidbody instantiatedProjectile = Instantiate(projectile, spawn.position, spawn.rotation) as Rigidbody;
-            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+            Rigidbody instantiatedProjectile = Instantiate(projectile, spawn.position, spawn.rotation ) as Rigidbody;
+            instantiatedProjectile.velocity = spawn.TransformDirection(new Vector3(0, 0, speed));
 
             time = reloadTime;
             canFire = false;
