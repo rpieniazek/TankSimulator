@@ -54,7 +54,7 @@ public class BarrelStabilization : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.T))
+        if (Input.GetButtonDown("BarrelLock"))
         {
             aimMode = !aimMode;
         }

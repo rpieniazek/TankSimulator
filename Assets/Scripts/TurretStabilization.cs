@@ -53,7 +53,7 @@ public class TurretStabilization : MonoBehaviour
         }
 
 
-        if (Input.GetKeyUp(KeyCode.Y))
+        if (Input.GetButtonDown("TurretLock"))
         {
             aimMode = !aimMode;
         }
