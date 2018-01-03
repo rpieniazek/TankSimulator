@@ -52,6 +52,7 @@ public class CameraController : MonoBehaviour
             SwitchMainCamera();
         }
 
+        //Stare
         if(cameras.Count == 4)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -124,7 +125,7 @@ public class CameraController : MonoBehaviour
             fpsCamera.CanMove = false;
             fpsCamera.gameObject.SetActive(false);
 
-            rearWheel.CanMove = true;
+            rearWheel.CanMove = false;
         }
     }
 

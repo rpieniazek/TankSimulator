@@ -29,7 +29,7 @@ public class Shooting : MonoBehaviour {
                 canFire = true;
         }
 
-        if (canFire && ( Input.GetButtonDown("Jump") || Input.GetAxis("RightTrigger") == 1))
+        if (canFire && ( Input.GetButtonDown("Fire") || Input.GetAxis("RightTrigger") == 1))
         {
             Rigidbody instantiatedProjectile = Instantiate(projectile, spawn.position, spawn.rotation ) as Rigidbody;
             instantiatedProjectile.velocity = spawn.TransformDirection(new Vector3(0, 0, speed));
