@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -20,7 +20,11 @@ public class CameraController : MonoBehaviour
     public FirstPersonController fpsCamera;
     RearWheelDrive rearWheel;
 
-    private int currentCamera = 1; 
+    private int currentCamera = 1;
+
+    [Header("Menu")]
+    [SerializeField] GameObject panelMenu;
+    bool menuOpen = false;
 
     private void Start()
     {
@@ -52,8 +56,33 @@ public class CameraController : MonoBehaviour
             SwitchMainCamera();
         }
 
+        if(menuOpen)
+        {
+           
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene(0);
+            }
+              
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Time.timeScale = 1f;
+                menuOpen = false;
+                panelMenu.SetActive(menuOpen);
+                return;
+            }
+        }
+
+        if((Input.GetButtonDown("Escape") || Input.GetButtonDown("Back") || Input.GetButtonDown("Start") ) && !menuOpen )
+        {
+            menuOpen = true;
+            panelMenu.SetActive(menuOpen);
+            Time.timeScale = 0f;
+        }
+
         //Stare
-        if(cameras.Count == 4)
+        if (cameras.Count == 4)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
