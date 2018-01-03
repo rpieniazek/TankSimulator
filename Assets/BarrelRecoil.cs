@@ -13,15 +13,14 @@ public class BarrelRecoil : MonoBehaviour {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Metoda wywoływana w klasie Shooting za pomocą SendMessage
+    /// </summary>
+    public void Recoil()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            startPoint = barrelPart.position;
-            endPoint = barrelPart.position + barrelPart.up * 0.3f;
-            StartCoroutine(triggerRecoil());
-        }
+        startPoint = barrelPart.position;
+        endPoint = barrelPart.position + barrelPart.up * 0.3f;
+        StartCoroutine(triggerRecoil());
     }
 
     IEnumerator triggerRecoil()

@@ -36,6 +36,7 @@ public class XController : MonoBehaviour {
 
         if(xyabButtons)
         {
+           // Input.GetKey
             if (Input.GetButtonDown("Fire1")) Debug.Log("A");
             if (Input.GetButtonDown("Fire2")) Debug.Log("B");
             if (Input.GetButtonDown("Fire3")) Debug.Log("X");

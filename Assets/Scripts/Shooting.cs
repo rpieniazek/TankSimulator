@@ -5,17 +5,39 @@ using UnityEngine;
 public class Shooting : MonoBehaviour {
 
 	public Rigidbody projectile;
-	public float speed = 20;
+	public float speed = 80;
 	public AudioClip shootSound;
+
+    [SerializeField] Transform spawn;
+    [SerializeField] float reloadTime = 2f;
+    [SerializeField] private float time = 0;
+    [SerializeField] private bool canFire;
+
+
+    void Start()
+    {
+        canFire = true;
+    }
 
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			Rigidbody instantiatedProjectile = Instantiate(projectile,transform.position,transform.rotation)as Rigidbody;
-			instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
-			//instantiatedProjectile.AddForce(new Vector3(0,0,speed));
-		}
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+            if (time <= 0)
+                canFire = true;
+        }
+
+        if (canFire && ( Input.GetButtonDown("Jump") || Input.GetAxis("RightTrigger") == 1))
+        {
+            Rigidbody instantiatedProjectile = Instantiate(projectile, spawn.position, spawn.rotation) as Rigidbody;
+            instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0, speed));
+
+            time = reloadTime;
+            canFire = false;
+
+            SendMessage("Recoil", SendMessageOptions.DontRequireReceiver);
+        }
 	}
 }
