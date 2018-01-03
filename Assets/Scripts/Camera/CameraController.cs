@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
         }
 
 
-        rearWheel = tankCameras.gameObject.GetComponent<RearWheelDrive>();
+        rearWheel = RearWheelDrive.instance;
 
 
         currentCamera = 2;
@@ -99,7 +99,7 @@ public class CameraController : MonoBehaviour
             fpsCamera.CanMove = false;
             fpsCamera.gameObject.SetActive(false);
 
-            rearWheel.CanMove = true;
+            rearWheel.CanMove = false;
         }
         else if(currentCamera == 1)
         {
@@ -125,7 +125,7 @@ public class CameraController : MonoBehaviour
             fpsCamera.CanMove = false;
             fpsCamera.gameObject.SetActive(false);
 
-            rearWheel.CanMove = false;
+            rearWheel.CanMove = true;
         }
     }
 

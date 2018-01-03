@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class RearWheelDrive : MonoBehaviour {
 
+
+    public static RearWheelDrive instance;
+
     public bool CanMove;
 
     private WheelCollider[] wheels;
@@ -26,6 +29,11 @@ public class RearWheelDrive : MonoBehaviour {
     public ParticleSystem smoke1;
     public ParticleSystem smoke2;
     // here we find all the WheelColliders down in the hierarchy
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     public void Start()
     {
@@ -64,35 +72,41 @@ public class RearWheelDrive : MonoBehaviour {
 
 	public void Update()
 	{
-       // if (!CanMove) //Input.ResetInputAxes();
-		/*
-		if (Input.GetAxis ("Vertical") != 0 &&  Input.GetAxis("HorizontalTank") == 0)
-			forwardTorque = 45000;
-		else
-			forwardTorque = 20000;
-		*/
-		float turn = forwardTorque * Input.GetAxis("HorizontalTank")*0.5f;
+
+        float HorizontalTank = Input.GetAxis("HorizontalTank");
+        float VerticalTank = Input.GetAxis("VerticalTank");
 
 
-		float leftRpm = 0;
-		float rightRpm =0;
+        if(!CanMove)
+        {
+            HorizontalTank = 0f;
+            VerticalTank = 0f;
+        }
+
+
+        float leftRpm = 0;
+        float rightRpm = 0;
+
+
+        float turn = forwardTorque * HorizontalTank * 0.5f;
 
 
 
-		foreach (WheelCollider wheel in wheels) {
+
+        foreach (WheelCollider wheel in wheels) {
 			if(wheel.name.Contains("l")){
 				leftRpm+= wheel.rpm;
 			} else{
 				rightRpm += wheel.rpm;
 			}
-			if (Input.GetAxis ("VerticalTank") == 0 ) {
+			if (VerticalTank == 0 ) {
 
 				wheel.wheelDampingRate = breakDampingRate;
 			} else {
 				wheel.wheelDampingRate = driveDampingRate;
 			}
 
-			if (Input.GetAxis ("VerticalTank") == 0) {			
+			if (VerticalTank == 0) {			
 
 				if (wheel.transform.localPosition.x > 0) {
 					wheel.motorTorque = -1 * turn;
@@ -101,14 +115,14 @@ public class RearWheelDrive : MonoBehaviour {
 					wheel.motorTorque = turn;
 				}
 			} else {
-				float leftPercentage = 0.5f - Input.GetAxis ("HorizontalTank")*turnSensivity /2 ;
-				float rightPercentage = 0.5f + Input.GetAxis ("HorizontalTank")*turnSensivity /2;
+				float leftPercentage = 0.5f - HorizontalTank * turnSensivity /2 ;
+				float rightPercentage = 0.5f + HorizontalTank * turnSensivity /2;
 
 				if (wheel.transform.localPosition.x > 0) {
-					wheel.motorTorque = leftPercentage * forwardTorque *Mathf.Clamp(Input.GetAxis("VerticalTank"),-0.5f,1);
+					wheel.motorTorque = leftPercentage * forwardTorque *Mathf.Clamp(VerticalTank, -0.5f,1);
 					}
 				if (wheel.transform.localPosition.x < 0) {
-					wheel.motorTorque = rightPercentage* forwardTorque*Mathf.Clamp(Input.GetAxis("VerticalTank"),-0.5f,1);
+					wheel.motorTorque = rightPercentage* forwardTorque*Mathf.Clamp(VerticalTank, -0.5f,1);
 				}
 
 			}
@@ -161,6 +175,6 @@ public class RearWheelDrive : MonoBehaviour {
      
 
 
-		GetComponentInChildren<AudioSource>().pitch = Mathf.Clamp(0.75f +velocity/60f + 0.5f*Mathf.Abs(Input.GetAxis("VerticalTank")) +  Mathf.Abs(Input.GetAxis("HorizontalTank")),  0.75f, 2.18f);
+		GetComponentInChildren<AudioSource>().pitch = Mathf.Clamp(0.75f +velocity/60f + 0.5f*Mathf.Abs(VerticalTank) +  Mathf.Abs(HorizontalTank),  0.75f, 2.18f);
 	}
 }
