@@ -28,6 +28,7 @@ public class MouseOrbitImproved : MonoBehaviour
     private float desiredDistance;
     private float correctedDistance;
 
+	[SerializeField] bool OnMouseButtonDown;
     float x = 0.0f;
     float y = 0.0f;
 
@@ -65,13 +66,16 @@ public class MouseOrbitImproved : MonoBehaviour
     void LateUpdate()
     {
         Vector3 vTargetOffset;
-        if (target)
-        {
-            x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
-            y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+		if (target)
+		{		
+			if (!OnMouseButtonDown || (OnMouseButtonDown && Input.GetMouseButton (0)))
+			{
+				
+				x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.02f;
+				y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
 
-            y = ClampAngle(y, yMinLimit, yMaxLimit);
-
+				y = ClampAngle (y, yMinLimit, yMaxLimit);
+			}
             Quaternion rotation = Quaternion.Euler(y, x, 0);
 
             // calculate distance 
@@ -101,9 +105,9 @@ public class MouseOrbitImproved : MonoBehaviour
             currentDistance = Mathf.Clamp(currentDistance, distanceMin, distanceMax);
 
             position = target.position - (rotation * Vector3.forward * currentDistance + vTargetOffset);
-
-            transform.rotation = rotation;
-            transform.position = position;
+		    transform.rotation = rotation;
+				transform.position = position;
+			
         }
     }
 
