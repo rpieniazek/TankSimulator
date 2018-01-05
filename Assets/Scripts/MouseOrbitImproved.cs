@@ -28,6 +28,8 @@ public class MouseOrbitImproved : MonoBehaviour
     private float desiredDistance;
     private float correctedDistance;
 
+    public bool CanMove;
+
 	[SerializeField] bool OnMouseButtonDown;
     float x = 0.0f;
     float y = 0.0f;
@@ -70,9 +72,12 @@ public class MouseOrbitImproved : MonoBehaviour
 		{		
 			if (!OnMouseButtonDown || (OnMouseButtonDown && Input.GetMouseButton (0)))
 			{
-				
-				x += Input.GetAxis ("Mouse X") * xSpeed * distance * 0.02f;
-				y -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
+				if(CanMove)
+                {
+                    x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
+                    y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+                }
+			
 
 				y = ClampAngle (y, yMinLimit, yMaxLimit);
 			}

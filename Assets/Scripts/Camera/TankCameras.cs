@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankCameras : MonoBehaviour {
 
-    public CameraOrbitDrag mainCamera;
+    public MouseOrbitImproved mainCamera;
     public Camera driver;
     public Camera barrel;
 

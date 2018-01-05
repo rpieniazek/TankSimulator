@@ -19,6 +19,9 @@ public class MenuController : MonoBehaviour {
         outline = text.GetComponent<Outline>();
 
         StartCoroutine(Sign());
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
